@@ -8,9 +8,7 @@ RUN curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | gpg --yes --dearmor
 RUN echo "deb [signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/cloudflare-client.list
 RUN apt update && apt install -y cloudflare-warp
 
-RUN wget -O gost.gz "https://github.com/ginuerzh/gost/releases/download/v2.12.0/gost_2.12.0_linux_arm64.tar.gz" && \
-    tar -xzf gost.gz -C /app && \  # 改用tar解压
-    chmod +x /app/gost
+RUN wget -O gost.gz "https://github.com/ginuerzh/gost/releases/download/v2.12.0/gost_2.12.0_linux_arm64.tar.gz" && \tar -xzf gost.gz -C /app && chmod +x /app/gost
 
 COPY start.sh /app/start.sh
 RUN chmod +x /app/start.sh
