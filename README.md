@@ -10,7 +10,7 @@ Setting Up an Out of Box HTTP/SOCKS5 Proxy with Cloudflare WARP in Docker
 ### 部署
 
 ```
-docker run -d -p 127.0.0.1:1080:1080 --name canal ghcr.io/tunmax/canal:latest
+docker run -d -p 127.0.0.1:1080:1080 --name canal gua12345/warp-socks-arm:latest
 ```
 
 ### 测试
