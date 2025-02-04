@@ -24,7 +24,7 @@ curl -x http://127.0.0.1:1080 ipinfo.io
 ### 部署
 
 ```
-docker run -d -p 127.0.0.1:1080:1080/tcp -p 127.0.0.1:1080:1080/udp -e SOCKS5_MODE=true --name canal ghcr.io/tunmax/canal:latest
+docker run -d -p 127.0.0.1:1080:1080/tcp -p 127.0.0.1:1080:1080/udp -e SOCKS5_MODE=true --name canal gua12345/warp-socks-arm:latest
 ```
 
 ### 测试
