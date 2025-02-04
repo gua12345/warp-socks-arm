@@ -4,6 +4,7 @@
 echo "PROXY_USERNAME: ${PROXY_USERNAME}"
 echo "PROXY_PASSWORD: ${PROXY_PASSWORD}"
 echo "SOCKS5_MODE: ${SOCKS5_MODE}"
+echo "WARP_LICENSE_ID: ${WARP_LICENSE_ID}"
 
 # 启动 warp-svc 并将其输出重定向到日志文件
 nohup /usr/bin/warp-svc > /app/warp.log &
@@ -13,6 +14,12 @@ sleep 5
 
 # 注册新的 Warp 客户端
 warp-cli --accept-tos registration new
+
+# 如果提供了 WARP_LICENSE_ID，则设置 WARP+ license
+if [ -n "$WARP_LICENSE_ID" ]; then
+    echo "Setting WARP+ license: ${WARP_LICENSE_ID}"
+    warp-cli registration license "${WARP_LICENSE_ID}"
+fi
 
 # 设置 Warp 模式为代理
 warp-cli --accept-tos mode proxy
